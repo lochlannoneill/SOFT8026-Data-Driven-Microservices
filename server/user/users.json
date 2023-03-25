@@ -1,0 +1,22 @@
+{
+  "_default": {
+    "100": {
+      "id": 100,
+      "name": "Sean McSweeney",
+      "email": "sean.mcsweeney@mtu.ie",
+      "password": "1234"
+    },
+    "101": {
+      "id": 101,
+      "name": "Larkin Cunningham",
+      "email": "larkin.cunningham@mtu.ie",
+      "password": "1234"
+    },
+    "102": {
+      "id": 102,
+      "name": "Maggie Cusack",
+      "email": "maggie.cusack@mtu.ie",
+      "password": "1234"
+    }
+  }
+}

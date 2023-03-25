@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message PurchaseRequest {
+    string email = 1;
+    string game_name = 2;
+    float price = 3;
+}
+
+message PaymentResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+service Payment {
+  rpc Purchase(PurchaseRequest) returns (PaymentResponse) {}
+}

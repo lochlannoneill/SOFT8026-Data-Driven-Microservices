@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+// Message for requesting games
+message GetGamesRequest {
+  // no fields in the request message
+}
+
+// Message for responding to a request for games
+message GetGamesResponse {
+  repeated string games = 1;
+}
+
+// Catalogue service definition
+service Catalogue {
+  rpc GetGames(GetGamesRequest) returns (GetGamesResponse) {}
+}

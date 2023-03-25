@@ -1,0 +1,118 @@
+{
+    "games": {
+        "Counter Strike": [
+            {
+                "title": "Counter-Strike: Global Offensive",
+                "developer": "Valve",
+                "publisher": "Valve",
+                "release_date": "2012-08-21",
+                "price": 14.99
+            },
+            {
+                "title": "Counter-Strike: Source",
+                "developer": "Valve",
+                "publisher": "Valve",
+                "release_date": "2004-11-01",
+                "price": 9.99
+            }
+        ],
+        "Total War": [
+            {
+                "title": "Total War: Warhammer II",
+                "developer": "Creative Assembly",
+                "publisher": "Sega",
+                "release_date": "2017-09-28",
+                "price": 59.99
+            },
+            {
+                "title": "Total War: Three Kingdoms",
+                "developer": "Creative Assembly",
+                "publisher": "Sega",
+                "release_date": "2019-05-23",
+                "price": 59.99
+            }
+        ],
+        "Europa Universalis": [
+            {
+                "title": "Europa Universalis IV",
+                "developer": "Paradox Development Studio",
+                "publisher": "Paradox Interactive",
+                "release_date": "2013-08-13",
+                "price": 39.99
+            },
+            {
+                "title": "Europa Universalis III",
+                "developer": "Paradox Development Studio",
+                "publisher": "Paradox Interactive",
+                "release_date": "2007-01-23",
+                "price": 19.99
+            }
+        ],
+        "The Elder Scrolls": [
+            {
+                "title": "The Elder Scrolls V: Skyrim",
+                "developer": "Bethesda Game Studios",
+                "publisher": "Bethesda Softworks",
+                "release_date": "2011-11-11",
+                "price": 19.99
+            },
+            {
+                "title": "The Elder Scrolls IV: Oblivion",
+                "developer": "Bethesda Game Studios",
+                "publisher": "Bethesda Softworks",
+                "release_date": "2006-03-20",
+                "price": 14.99
+            }
+        ],
+        "Call of Duty": [
+            {
+                "title": "Call of Duty: Modern Warfare",
+                "developer": "Infinity Ward",
+                "publisher": "Activision",
+                "release_date": "2019-10-25",
+                "price": 59.99
+            },
+            {
+                "title": "Call of Duty: Black Ops Cold War",
+                "developer": "Treyarch",
+                "publisher": "Activision",
+                "release_date": "2020-11-13",
+                "price": 59.99
+            }
+        ],
+        "Crusader Kings": [
+            {
+                "title": "Crusader Kings III",
+                "developer": "Paradox Development Studio",
+                "publisher": "Paradox Interactive",
+                "release_date": "2020-09-01",
+                "price": 49.99
+            },
+            {
+                "title": "Crusader Kings II",
+                "developer": "Paradox Development Studio",
+                "publisher": "Paradox Interactive",
+                "release_date": "2012-02-14",
+                "price": 39.99
+            }
+        ],
+        "Fallout": [
+            {
+                "title": "Fallout 4",
+                "developer": "Bethesda Game Studios",
+                "publisher": "Bethesda Softworks",
+                "release_date": "2015-11-10",
+                "price": 19.99
+            },
+            {
+                "title": "Fallout 3",
+                "developer": "Bethesda Game Studios",
+                "publisher": "Bethesda Softworks",
+                "release_date": "2008-10-28",
+                "price": 9.99
+            }
+        ]
+    }
+}
+            
+           
