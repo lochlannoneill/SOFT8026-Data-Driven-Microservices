@@ -26,6 +26,6 @@ ENV NAME Greeter
 # RUN python3 -m grpc_tools.protoc -I../../protos --python_out=. --pyi_out=. --grpc_python_out=. helloworld.proto
 # RUN python3 -m grpc_tools.protoc -I/app/assignment01/protos --python_out=. --grpc_python_out=. /app/assignment01/protos/helloworld.proto
 
-# Run greeter_server.py when the container launches
+# Run greeter-server.py when the container launches
 CMD ["python", "greeter_server.py"]
 

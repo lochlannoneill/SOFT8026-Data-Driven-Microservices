@@ -23,6 +23,6 @@ EXPOSE 50053
 # RUN python3 -m grpc_tools.protoc -I../../protos --python_out=. --pyi_out=. --grpc_python_out=. catalogue.proto
 # RUN python3 -m grpc_tools.protoc -I/app/assignment01/protos --python_out=. --grpc_python_out=. /app/assignment01/protos/catalogue.proto
 
-# Run greeter_server.py when the container launches
+# Run greeter-server.py when the container launches
 CMD ["python", "catalogue_server.py"]
 

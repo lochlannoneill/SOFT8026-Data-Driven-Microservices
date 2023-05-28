@@ -14,7 +14,7 @@ services:
       - "5672:5672"
       - "15672:15672"
     
-  # web dashboard localhost:8080 => constainer port 5000 mapped to host port 8080
+  # web dashboard localhost:8080 => container port 5000 mapped to host port 8080
   weblogs:
     build:
       context: ./weblog
@@ -25,7 +25,7 @@ services:
       - "redis"
 
   # User
-  user_server:
+  user-server:
     build:
       context: ./server/user
       dockerfile: User_Server.Dockerfile
@@ -36,19 +36,19 @@ services:
     environment:
       - RABBITMQ_HOST=rabbitmq
 
-  user_client:
+  user-client:
     build:
       context: ./client/user
       dockerfile: User_Client.Dockerfile
     depends_on:
-      - "user_server"
+      - "user-server"
       - rabbitmq
     volumes:
       - ./wait-for-it.sh:/app/wait-for-it.sh
-    command: ["./wait-for-it.sh", "user_server:50051", "--", "python", "user_client.py"]
+    command: ["./wait-for-it.sh", "user-server:50051", "--", "python", "user_client.py"]
 
   # Greeter
-  greeter_server:
+  greeter-server:
     build:
       context: ./server/greeter
       dockerfile: Greeter_Server.Dockerfile
@@ -59,19 +59,19 @@ services:
     environment:
       - RABBITMQ_HOST=rabbitmq
 
-  greeter_client:
+  greeter-client:
     build:
       context: ./client/greeter
       dockerfile: Greeter_Client.Dockerfile
     depends_on:
-      - "greeter_server"
+      - "greeter-server"
       - rabbitmq
     volumes:
       - ./wait-for-it.sh:/app/wait-for-it.sh
-    command: ["./wait-for-it.sh", "greeter_server:50052", "--", "python", "greeter_client.py"]
+    command: ["./wait-for-it.sh", "greeter-server:50052", "--", "python", "greeter_client.py"]
 
   # Catalogue
-  catalogue_server:
+  catalogue-server:
     build:
       context: ./server/catalogue
       dockerfile: Catalogue_Server.Dockerfile
@@ -82,19 +82,19 @@ services:
     environment:
       - RABBITMQ_HOST=rabbitmq
 
-  catalogue_client:
+  catalogue-client:
     build:
       context: ./client/catalogue
       dockerfile: Catalogue_Client.Dockerfile
     depends_on:
-      - "catalogue_server"
+      - "catalogue-server"
       - rabbitmq
     volumes:
       - ./wait-for-it.sh:/app/wait-for-it.sh
-    command: ["./wait-for-it.sh", "catalogue_server:50053", "--", "python", "catalogue_client.py"]
+    command: ["./wait-for-it.sh", "catalogue-server:50053", "--", "python", "catalogue_client.py"]
 
   # # Payment
-  # payment_server:
+  # payment-server:
   #   build:
   #     context: ./server/payment
   #     dockerfile: Payment_Server.Dockerfile
@@ -105,13 +105,13 @@ services:
   #   environment:
   #     - RABBITMQ_HOST=rabbitmq
 
-  # payment_client:
+  # payment-client:
   #   build:
   #     context: ./client/payment
   #     dockerfile: Payment_Client.Dockerfile
   #   depends_on:
-  #     - "payment_server"
+  #     - "payment-server"
   #     - rabbitmq
   #   volumes:
   #     - ./wait-for-it.sh:/app/wait-for-it.sh
-  #   command: ["./wait-for-it.sh", "payment_server:50054", "--", "python", "payment_client.py"]
+  #   command: ["./wait-for-it.sh", "payment-server:50054", "--", "python", "payment_client.py"]

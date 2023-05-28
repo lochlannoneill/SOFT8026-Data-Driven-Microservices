@@ -27,7 +27,7 @@ import time
 
     
 def purchase(email_param, game_name_param, price_param,):
-    with grpc.insecure_channel('purchase_server:50054') as channel:
+    with grpc.insecure_channel('purchase-server:50054') as channel:
         stub = payment_pb2_grpc.PaymentStub(channel)
         response = stub.Purchase(payment_pb2.GetDetailsRequest(email=email_param, game_name=game_name_param, price=price_param))
         return response

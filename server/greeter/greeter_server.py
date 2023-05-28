@@ -31,7 +31,7 @@ class Greeter(helloworld_pb2_grpc.GreeterServicer):
         # Weblog
         try:
             conn = redis.StrictRedis(host='redis', port=6379)
-            conn.set("log.greeter_server." + str(datetime.datetime.now()), "Greeter.SayHello: Hello, " + request.name + "!")
+            conn.set("log.greeter-server." + str(datetime.datetime.now()), "Greeter.SayHello: Hello, " + request.name + "!")
         except Exception as ex:
             print('Error:', ex)
         

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greeter-server-deploy
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: greeter-server
+  minReadySeconds: 6
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: greeter-server
+    spec:
+      containers:
+      - name: greeter-server
+        image: lochlannoneill/greeter-server:latest
+        ports:
+        - containerPort: 50052
+

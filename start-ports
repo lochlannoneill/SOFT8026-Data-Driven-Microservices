@@ -1,0 +1,7 @@
+#!/bin/bash
+
+xdg-open http://localhost:8080
+xdg-open http://localhost:30000  # logs
+xdg-open http://localhost:1337  # Prometheus
+xdg-open http://localhost:3000  # Grafana
+

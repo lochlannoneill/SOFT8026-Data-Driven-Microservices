@@ -11,7 +11,7 @@ import time
 
 
 def sayHello():
-    with grpc.insecure_channel('greeter_server:50052') as channel:
+    with grpc.insecure_channel('greeter-server:50052') as channel:
         stub = helloworld_pb2_grpc.GreeterStub(channel)
 
         response = stub.SayHello(helloworld_pb2.HelloRequest(name='Lochlann'))
@@ -22,7 +22,9 @@ def sayHello():
 
 
 def run():
-    sayHello()
+    while True:
+        sayHello()
+        time.sleep(random.randint(1,6))
 
 
 if __name__ == '__main__':

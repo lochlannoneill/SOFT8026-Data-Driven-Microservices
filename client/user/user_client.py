@@ -26,26 +26,47 @@ import random
 import time
 
 
+def check_nonempty(value, field_name):
+    if not value:
+        raise ValueError(f"'{field_name}' field cannot be empty")
+
+
 def register_user(email_param, firstname_param, lastname_param, password_param):
-    with grpc.insecure_channel('user_server:50051') as channel:
+    print("register_user(): attempting to register '" + email_param + "'")
+    try:
+        check_nonempty(email_param, "email")
+        check_nonempty(firstname_param, "firstname")
+        check_nonempty(lastname_param, "lastname")
+        check_nonempty(password_param, "password")
+        print("register_user(): '" + email_param + "' registered")
+    except ValueError as e:
+        print(str(e))
+        return None
+
+    with grpc.insecure_channel('user-server:50051') as channel:
         stub = user_pb2_grpc.UserStub(channel)
         response = stub.Register(user_pb2.RegisterRequest(email=email_param, firstname=firstname_param, lastname=lastname_param, password=password_param))
         return response
 
 
 def get_user_details(email_param):
-    with grpc.insecure_channel('user_server:50051') as channel:
+    with grpc.insecure_channel('user-server:50051') as channel:
         stub = user_pb2_grpc.UserStub(channel)
         response = stub.GetDetails(user_pb2.GetDetailsRequest(email=email_param))
         return response
 
 
 def run():
+    register = register_user("", "test", "empty_email", "password123")
+    # print("register_user(): " + register.email)
+    
     register = register_user("l.carroll-oneill@mycit.ie", "Lochlann", "Oneill", "password123")
-    print("register_user(): " + register.email)
+    # print("register_user(): " + register.email)
     
     details = get_user_details(register.email)
     print("get_user_details(" + register.email + "): " + details.firstname + ", " + details.lastname)
+    
+
 
 
 if __name__ == '__main__':

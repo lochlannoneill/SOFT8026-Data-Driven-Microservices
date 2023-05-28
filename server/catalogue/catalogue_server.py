@@ -22,7 +22,7 @@ class Catalogue(catalogue_pb2_grpc.CatalogueServicer):
         # Weblog
         try:
             conn = redis.StrictRedis(host='redis', port=6379)
-            conn.set("log.catalogue_server." + str(datetime.datetime.now()), "Catalogue.GetGames: " + str(len(response.games)) + " games")
+            conn.set("log.catalogue-server." + str(datetime.datetime.now()), "Catalogue.GetGames: " + str(len(response.games)) + " games")
         except Exception as ex:
             print('Error:', ex)
         

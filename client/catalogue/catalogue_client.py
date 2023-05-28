@@ -11,7 +11,7 @@ import time
 
 
 def get_games():
-    with grpc.insecure_channel('catalogue_server:50053') as channel:
+    with grpc.insecure_channel('catalogue-server:50053') as channel:
         stub = catalogue_pb2_grpc.CatalogueStub(channel)
         response = stub.GetGames(catalogue_pb2.GetGamesRequest())
         return response

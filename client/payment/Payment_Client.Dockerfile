@@ -17,12 +17,12 @@ RUN pip install redis
 
 RUN pip install tinydb
 
-# Make port 50051 available to the world outside this container
-EXPOSE 50051
+# Make port 50054 available to the world outside this container
+EXPOSE 50054
 
 # RUN python3 -m grpc_tools.protoc -I../../protos --python_out=. --pyi_out=. --grpc_python_out=. user.proto
 # RUN python3 -m grpc_tools.protoc -I/app/assignment01/protos --python_out=. --grpc_python_out=. /app/assignment01/protos/user.proto
 
-# Run greeter_server.py when the container launches
+# Run greeter-server.py when the container launches
 CMD ["python", "payment_client.py"]
 

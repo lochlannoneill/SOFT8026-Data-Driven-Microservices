@@ -26,7 +26,7 @@ class User(user_pb2_grpc.UserServicer):
         # Weblog
         try:
             conn = redis.StrictRedis(host='redis', port=6379)
-            conn.set("log.user_server." + str(datetime.datetime.now()), "User.Register: " + request.email + "")
+            conn.set("log.user-server." + str(datetime.datetime.now()), "User.Register: " + request.email + "")
         except Exception as ex:
             print('Error:', ex)
         
@@ -34,7 +34,7 @@ class User(user_pb2_grpc.UserServicer):
     
 
     def GetDetails(self, request, context):
-        db = TinyDB('../db/users.json')
+        db = TinyDB('users.json')
         User = Query()
         result = db.search(User.email == request.email)
         response = user_pb2.GetDetailsResponse(email=result[0]['email'], firstname=result[0]['firstname'], lastname=result[0]['lastname'])
@@ -50,7 +50,7 @@ class User(user_pb2_grpc.UserServicer):
         # Weblog
         try:
             conn_log = redis.StrictRedis(host='redis', port=6379)
-            conn_log.set("log.catalogue_server." + str(datetime.datetime.now()), "user.GetDetails: (" + response + ")")
+            conn_log.set("log.catalogue-server." + str(datetime.datetime.now()), "user.GetDetails: (" + response + ")")
         except Exception as ex:
             print('Error:', ex)
             
