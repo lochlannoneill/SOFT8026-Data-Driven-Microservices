@@ -1,0 +1,15 @@
+cd Desktop/Microservices/assignment02/app
+sudo docker ps -a
+sudo docker container prune
+sudo docker ps -a
+sudo docker compose up --build
+
+localhost:8080
+
+cd Desktop/Microservices/assignment02/kubernetes-prometheus
+sudo kubectl get pods --all-namespaces
+sudo kubectl get deployments --namespace=monitoring
+sudo kubectl port-forward prometheus-deployment-67cf879cc4-h6ngb 1337:9090 -n monitoring
+
+localhost:1337
+cpu_usage_seconds
